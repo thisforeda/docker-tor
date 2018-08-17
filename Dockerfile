@@ -1,6 +1,9 @@
 FROM alpine:latest
 
-RUN apk add --no-cache tor
+COPY entry /entry
+
+RUN apk add --no-cache tor \
+    && chmod +x /entry
 
 EXPOSE 9050
 
