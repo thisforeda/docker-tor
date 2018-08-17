@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 [[ -z "$BIND" ]] && BIND="127.0.0.1:9050"
 
 echo "SOCKSPort $BIND" | tee /etc/torrc
