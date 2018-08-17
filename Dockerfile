@@ -3,6 +3,7 @@ FROM alpine:latest
 COPY entry /entry
 
 RUN apk add --no-cache tor \
+    && cp -p /usr/bin/tor /usr/sbin/tor \
     && chmod +x /entry
 
 EXPOSE 9050
