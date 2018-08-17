@@ -1,11 +1,6 @@
-FROM debian:stretch-slim
+FROM alpine:latest
 
-COPY entry /entry
-
-RUN apt-get update \
-	&& apt install -y --no-install-recommends tor \
-	&& chmod +x /entry
-
+RUN apk add --no-cache tor
 
 EXPOSE 9050
 
