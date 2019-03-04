@@ -1,5 +1,5 @@
 #!/bin/sh
-[[ -z "$BIND" ]] && BIND="127.0.0.1:9050"
+echo > /etc/torrc
 
-echo "SOCKSPort $BIND" | tee /etc/torrc
+for conf in $(env | awk -F "=" '{print $1}'); do [[ $(echo $conf | cut -c -6) == "TORRC_" ]] && echo "$(echo $conf | cut -c 7-) $(printenv $conf)" | tee -a /etc/torrc; done
 exec "$@"
